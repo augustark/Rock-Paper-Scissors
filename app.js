@@ -35,10 +35,13 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+resetGame.disabled = true
+
 for (let i = 0; i < 3; i++) {
     const val = choiceBtn[i].textContent.toLowerCase()
     choiceBtn[i].addEventListener("click", function() {
         if (score === maxScore || compScore === maxScore) {
+            resetGame.disabled = false
             choiceBtn[0].disabled = true
             choiceBtn[1].disabled = true
             choiceBtn[2].disabled = true
@@ -61,6 +64,7 @@ function reset() {
     choiceBtn[0].disabled = false
     choiceBtn[1].disabled = false
     choiceBtn[2].disabled = false
+    resetGame.disabled = true
 }
 
 resetGame.addEventListener("click", reset)
